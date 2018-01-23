@@ -55,6 +55,7 @@ public class CalculadoraJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setEnabled(false);
 
+        jTextFieldDisplay.setEditable(false);
         jTextFieldDisplay.setBackground(new java.awt.Color(204, 204, 204));
         jTextFieldDisplay.setFont(new java.awt.Font("Lucida Console", 0, 24)); // NOI18N
         jTextFieldDisplay.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -161,6 +162,11 @@ public class CalculadoraJFrame extends javax.swing.JFrame {
         jButtonN0.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButtonN0.setText("0");
         jButtonN0.setPreferredSize(new java.awt.Dimension(80, 80));
+        jButtonN0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonN0ActionPerformed(evt);
+            }
+        });
 
         jButtonIgual.setBackground(new java.awt.Color(0, 204, 102));
         jButtonIgual.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -314,6 +320,19 @@ public class CalculadoraJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonMemoriaSumarActionPerformed
 
+    private void jButtonN0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonN0ActionPerformed
+        annadirCifra('0');
+    }//GEN-LAST:event_jButtonN0ActionPerformed
+
+    public void annadirCifra(char cifra) {
+        
+    }
+    
+    public double obtenerCifraDisplay() {
+        return Double.parseDouble(jTextFieldDisplay.getText());
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -322,7 +341,7 @@ public class CalculadoraJFrame extends javax.swing.JFrame {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        */ 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -339,6 +358,7 @@ public class CalculadoraJFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CalculadoraJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+
         //</editor-fold>
 
         /* Create and display the form */
